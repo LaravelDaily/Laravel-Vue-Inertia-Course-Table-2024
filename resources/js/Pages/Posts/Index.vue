@@ -1,11 +1,9 @@
 <script setup>
-import usePosts from '../../composables/posts.js';
-import { onMounted } from 'vue';
-
-const { posts, getPosts } = usePosts()
-
-onMounted(() => {
-    getPosts()
+const props = defineProps({
+    posts: {
+        type: Object,
+        required: true
+    }
 })
 </script>
 
@@ -36,7 +34,7 @@ onMounted(() => {
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200 divide-solid">
-            <tr v-for="post in posts.data">
+            <tr v-for="post in posts">
                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                     {{ post.id }}
                 </td>
