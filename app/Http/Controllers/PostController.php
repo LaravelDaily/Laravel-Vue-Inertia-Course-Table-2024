@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index(): Response
     {
-        sleep(3);
+//        sleep(3);
 
         $posts = PostResource::collection(Post::all());
 

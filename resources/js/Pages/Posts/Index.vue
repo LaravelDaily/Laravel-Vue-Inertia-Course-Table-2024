@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '../../Layouts/App.vue';
+import { Head } from '@inertiajs/vue3';
 
 const props = defineProps({
     posts: {
@@ -10,6 +11,8 @@ const props = defineProps({
 </script>
 
 <template>
+    <Head title="Posts" />
+
     <AppLayout>
         <table class="min-w-full divide-y divide-gray-200 border">
             <thead>
