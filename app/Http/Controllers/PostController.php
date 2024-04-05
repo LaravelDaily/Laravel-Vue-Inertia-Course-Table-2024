@@ -11,6 +11,8 @@ class PostController extends Controller
 {
     public function index(): Response
     {
+        sleep(3);
+
         $posts = PostResource::collection(Post::all());
 
         return Inertia::render('Posts/Index', compact('posts'));
