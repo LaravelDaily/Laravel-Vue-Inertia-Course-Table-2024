@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '../../Layouts/App.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 const props = defineProps({
     posts: {
@@ -14,6 +14,10 @@ const props = defineProps({
     <Head title="Posts" />
 
     <AppLayout>
+        <Link :href="route('posts.create')" class="mb-4 inline-block rounded-md bg-blue-500 px-4 py-3 text-xs font-semibold uppercase tracking-widest text-white shadow-sm">
+            Add new post
+        </Link>
+
         <table class="min-w-full border divide-y divide-gray-200">
             <thead>
                 <tr>
