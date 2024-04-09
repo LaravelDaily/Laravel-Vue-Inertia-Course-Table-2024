@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Inertia\Inertia;
 use Inertia\Response;
-use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -25,12 +25,10 @@ class PostController extends Controller
         return Inertia::render('Posts/Create');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StorePostRequest $request): RedirectResponse
     {
-        Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
-        ]);
+        sleep(2);
+        Post::create($request->validated());
 
         return redirect()->route('posts.index');
     }
