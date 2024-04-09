@@ -37,10 +37,10 @@ import { Link } from '@inertiajs/vue3'
                         </div>
                     </div>
                     <div class="flex items-center">
-                        <button type="button"
+                        <Link :href="route('logout')" method="post"
                                 class="ml-4 inline-flex items-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-gray-700 focus:shadow-outline-gray focus:border-gray-900 focus:outline-none active:bg-gray-900">
                             Log out
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

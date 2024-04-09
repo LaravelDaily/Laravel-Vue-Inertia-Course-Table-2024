@@ -11,3 +11,4 @@ Route::middleware('auth')->group(function () {
 });
 Route::inertia('login', 'Auth/Login')->name('login');
 Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'store'])->name('login.post');
+Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'destroy'])->name('logout');
