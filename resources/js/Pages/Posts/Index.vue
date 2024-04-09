@@ -6,6 +6,9 @@ const props = defineProps({
     posts: {
         type: Object,
         required: true
+    },
+    permissions: {
+        type: Object,
     }
 })
 
@@ -20,7 +23,7 @@ const destroy = (id) => {
     <Head title="Posts" />
 
     <AppLayout>
-        <Link :href="route('posts.create')" class="mb-4 inline-block rounded-md bg-blue-500 px-4 py-3 text-xs font-semibold uppercase tracking-widest text-white shadow-sm">
+        <Link v-if="permissions.posts_manage" :href="route('posts.create')" class="mb-4 inline-block rounded-md bg-blue-500 px-4 py-3 text-xs font-semibold uppercase tracking-widest text-white shadow-sm">
             Add new post
         </Link>
 
@@ -57,10 +60,10 @@ const destroy = (id) => {
                         {{ post.created_at }}
                     </td>
                     <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
-                        <Link :href="route('posts.edit', post.id)" class="mr-2 inline-block rounded-md bg-blue-500 px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white shadow-sm">
+                        <Link v-if="permissions.posts_manage" :href="route('posts.edit', post.id)" class="mr-2 inline-block rounded-md bg-blue-500 px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white shadow-sm">
                             Edit
                         </Link>
-                        <button @click="destroy(post.id)" type="button" class="rounded-md bg-red-600 px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white shadow-sm">
+                        <button v-if="permissions.posts_manage" @click="destroy(post.id)" type="button" class="rounded-md bg-red-600 px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white shadow-sm">
                             Delete
                         </button>
                     </td>
