@@ -32,8 +32,9 @@ import { Link } from '@inertiajs/vue3'
                     </div>
 
                     <div class="flex items-center">
-                        <div>
-                            <div>Hi, user</div>
+                        <div class="flex flex-col">
+                            <div>Hi, {{ $page.props.user.name }}</div>
+                            <div>{{ $page.props.user.email }}</div>
                         </div>
                     </div>
                     <div class="flex items-center">
