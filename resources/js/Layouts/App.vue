@@ -51,6 +51,10 @@ import { Link } from '@inertiajs/vue3'
                 <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div class="border-b border-gray-200 bg-white p-6">
+                            <div v-show="$page.props.flash.message" class="mb-4 rounded-md bg-blue-100 px-3 py-2 text-blue-700">
+                                {{ $page.props.flash.message }}
+                            </div>
+
                             <slot/>
                         </div>
                     </div>
